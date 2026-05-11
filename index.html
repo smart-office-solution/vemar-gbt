@@ -13,19 +13,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset & tokens ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg:        #FAF7F2;
+      --bg:        #F9F8F6;
       --card:      #FFFFFF;
-      --primary:   #4A5D4E;
-      --secondary: #8B9D8F;
-      --accent:    #7D8A6E;
-      --text:      #2D2D2D;
-      --muted:     #9A9A8E;
-      --border:    #E8E4DC;
-      --shadow:    0 10px 40px rgba(0,0,0,0.05);
-      --shadow-btn:0 4px 14px rgba(74,93,78,0.28);
+      --primary:   #EEAA03;
+      --secondary: #5C5A58;
+      --accent:    #C8900A;
+      --text:      #2D2C2B;
+      --muted:     #8A8886;
+      --border:    #E5E3E0;
+      --shadow:    0 10px 40px rgba(0,0,0,0.06);
+      --shadow-btn:0 4px 14px rgba(238,170,3,0.35);
       --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-full: 999px;
     }
     html { scroll-behavior: smooth; }
@@ -43,8 +42,6 @@
     }
     img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
-
-    /* ── Utils ── */
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -66,15 +63,13 @@
                   transform 0.65s cubic-bezier(0.22,1,0.36,1);
     }
     .reveal.visible { opacity: 1; transform: none; }
-
-    /* ── Navbar ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
       border-bottom: 1px solid transparent;
     }
     nav.scrolled {
-      background: rgba(250,247,242,0.94);
+      background: rgba(249,248,246,0.94);
       backdrop-filter: blur(12px);
       border-color: var(--border);
     }
@@ -97,17 +92,13 @@
     .nav-cta {
       display: flex; align-items: center; gap: 8px;
       padding: 10px 22px; border-radius: var(--r-full);
-      background: var(--primary); color: #fff;
-      font-size: 0.875rem; font-weight: 600;
+      background: var(--primary); color: var(--text);
+      font-size: 0.875rem; font-weight: 700;
       box-shadow: var(--shadow-btn);
       transition: opacity 0.2s, transform 0.15s;
     }
     .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-    }
-
-    /* ── Hero ── */
+    @media (max-width: 768px) { .nav-links { display: none; } }
     #hero {
       min-height: 100vh; padding: 100px 24px 60px;
       display: flex; align-items: center;
@@ -117,7 +108,7 @@
     #hero::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
-      background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(125,138,110,0.10) 0%, transparent 60%);
+      background: radial-gradient(ellipse 70% 60% at 80% 20%, rgba(238,170,3,0.10) 0%, transparent 60%);
     }
     .hero-grid {
       position: relative; z-index: 1;
@@ -133,7 +124,7 @@
       font-size: clamp(2.4rem, 4.5vw, 4.2rem);
       margin-bottom: 24px; color: var(--text);
     }
-    #hero h1 em { font-style: normal; color: var(--primary); }
+    #hero h1 em { font-style: normal; color: var(--accent); }
     #hero .sub {
       font-size: 1.1rem; color: var(--muted);
       max-width: 520px; margin-bottom: 36px;
@@ -141,8 +132,8 @@
     .btn-primary {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 16px 28px; border-radius: var(--r-full);
-      background: var(--primary); color: #fff;
-      font-size: 1rem; font-weight: 600;
+      background: var(--primary); color: var(--text);
+      font-size: 1rem; font-weight: 700;
       box-shadow: var(--shadow-btn);
       transition: opacity 0.2s, transform 0.15s;
       border: none; cursor: pointer;
@@ -161,12 +152,11 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
     .trust-badges { display: flex; flex-wrap: wrap; gap: 20px; font-size: 0.875rem; color: var(--muted); }
     .trust-badges span::before { content: '✓ '; color: var(--accent); }
-    /* hero card */
     .hero-card {
       border-radius: var(--r-lg); overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: 0 32px 80px rgba(0,0,0,0.08);
-      background: linear-gradient(135deg, var(--card) 0%, #EEE9E0 100%);
+      background: linear-gradient(135deg, var(--card) 0%, #F5F0E8 100%);
       display: flex; flex-direction: column; padding: 40px;
       aspect-ratio: 4/5;
     }
@@ -175,12 +165,12 @@
     }
     .hero-card-icon .ring1 {
       width: 160px; height: 160px; border-radius: 50%;
-      background: rgba(74,93,78,0.08);
+      background: rgba(238,170,3,0.10);
       display: flex; align-items: center; justify-content: center;
     }
     .hero-card-icon .ring2 {
       width: 100px; height: 100px; border-radius: 50%;
-      background: rgba(74,93,78,0.13);
+      background: rgba(238,170,3,0.18);
       display: flex; align-items: center; justify-content: center;
       font-size: 3rem;
     }
@@ -193,19 +183,13 @@
       text-transform: uppercase; letter-spacing: 0.08em;
       color: var(--accent); margin-bottom: 6px;
     }
-    .hero-card-info h3 {
-      font-size: 1.15rem; color: var(--text); margin-bottom: 6px;
-    }
+    .hero-card-info h3 { font-size: 1.15rem; color: var(--text); margin-bottom: 6px; }
     .hero-card-info p { font-size: 0.875rem; color: var(--muted); }
-
-    /* ── Secciones comunes ── */
     section { padding: 96px 24px; }
     section.alt { background: var(--card); }
     .section-head { text-align: center; max-width: 720px; margin: 0 auto 64px; }
     .section-head h2 { font-size: clamp(2rem, 3.5vw, 3rem); margin-bottom: 16px; }
     .section-head p { font-size: 1.05rem; color: var(--muted); }
-
-    /* ── ¿Qué es GBT? ── */
     .gbt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     @media (max-width: 800px) { .gbt-grid { grid-template-columns: 1fr; } }
     .gbt-text h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 20px; }
@@ -221,8 +205,6 @@
     .pillar-icon { font-size: 1.5rem; margin-bottom: 12px; }
     .pillar h3 { font-size: 0.95rem; font-family: 'Fraunces', serif; color: var(--text); margin-bottom: 6px; }
     .pillar p { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── Beneficios ── */
     .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     @media (max-width: 900px) { .benefits-grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 550px) { .benefits-grid { grid-template-columns: 1fr; } }
@@ -233,14 +215,12 @@
     }
     .benefit-icon {
       width: 48px; height: 48px; border-radius: var(--r-md);
-      background: rgba(74,93,78,0.09);
+      background: rgba(238,170,3,0.12);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; margin-bottom: 20px;
     }
     .benefit-card h3 { font-size: 1.1rem; font-family: 'Fraunces', serif; margin-bottom: 10px; }
     .benefit-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
-
-    /* ── Proceso ── */
     .steps { max-width: 780px; margin: 0 auto; position: relative; }
     .steps::before {
       content: '';
@@ -250,7 +230,7 @@
     .step { display: flex; gap: 24px; margin-bottom: 28px; position: relative; }
     .step-num {
       flex-shrink: 0; width: 48px; height: 48px; border-radius: 50%;
-      background: var(--primary); color: #fff;
+      background: var(--primary); color: var(--text);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Fraunces', serif; font-weight: 700; font-size: 0.9rem;
       position: relative; z-index: 1;
@@ -264,8 +244,6 @@
     }
     .step-body h3 { font-size: 1rem; font-family: 'Fraunces', serif; margin-bottom: 6px; }
     .step-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
-
-    /* ── Para quién ── */
     .profiles-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; margin-bottom: 40px; }
     @media (max-width: 900px) { .profiles-grid { grid-template-columns: repeat(2,1fr); } }
     @media (max-width: 550px) { .profiles-grid { grid-template-columns: 1fr; } }
@@ -278,14 +256,12 @@
     .profile-card h3 { font-size: 1.05rem; font-family: 'Fraunces', serif; margin-bottom: 8px; }
     .profile-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
     .checklist-bar {
-      background: var(--primary); color: rgba(255,255,255,0.9);
+      background: var(--secondary); color: rgba(255,255,255,0.9);
       border-radius: var(--r-lg); padding: 28px 36px;
       display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between;
     }
     .checklist-bar .check { display: flex; align-items: flex-start; gap: 10px; font-size: 0.875rem; font-weight: 500; }
     .checklist-bar .check::before { content: '✓'; opacity: 0.8; flex-shrink: 0; }
-
-    /* ── Vídeo ── */
     .video-wrap {
       max-width: 560px; margin: 0 auto;
       border-radius: var(--r-lg); overflow: hidden;
@@ -295,8 +271,6 @@
     }
     @media (min-width: 600px) { .video-wrap { aspect-ratio: 16/9; max-width: 900px; } }
     .video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-
-    /* ── Testimonios ── */
     .testimonios-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     @media (max-width: 700px) { .testimonios-grid { grid-template-columns: 1fr; } }
     .testimonio {
@@ -304,29 +278,25 @@
       background: var(--card); border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
-    .stars { color: #D4A373; font-size: 0.85rem; margin-bottom: 16px; }
+    .stars { color: #EEAA03; font-size: 0.85rem; margin-bottom: 16px; }
     .testimonio blockquote { font-size: 0.95rem; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
     .testimonio-author { display: flex; align-items: center; gap: 12px; }
     .avatar {
       width: 40px; height: 40px; border-radius: 50%;
-      background: var(--primary); color: #fff;
+      background: var(--secondary); color: #fff;
       display: flex; align-items: center; justify-content: center;
       font-weight: 700; font-size: 0.875rem; flex-shrink: 0;
     }
     .autor-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
     .autor-role { font-size: 0.8rem; color: var(--muted); }
-
-    /* ── Contacto ── */
     .contacto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     @media (max-width: 800px) { .contacto-grid { grid-template-columns: 1fr; } }
     .contacto-info h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 20px; }
     .contacto-info p { color: var(--muted); font-size: 1.05rem; margin-bottom: 36px; }
-    .contact-item {
-      display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
-    }
+    .contact-item { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
     .contact-icon {
       width: 44px; height: 44px; border-radius: var(--r-md);
-      background: rgba(74,93,78,0.09);
+      background: rgba(238,170,3,0.12);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.2rem; flex-shrink: 0;
     }
@@ -335,11 +305,9 @@
     .contact-item a.value:hover { text-decoration: underline; }
     .map-wrap {
       margin-top: 28px; border-radius: var(--r-lg); overflow: hidden;
-      border: 1px solid var(--border);
-      aspect-ratio: 16/10;
+      border: 1px solid var(--border); aspect-ratio: 16/10;
     }
     .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
-    /* Form */
     .form-card {
       background: var(--bg); border: 1px solid var(--border);
       border-radius: var(--r-lg); padding: 40px;
@@ -357,14 +325,14 @@
       font-size: 0.95rem; outline: none;
       transition: border-color 0.2s;
     }
-    .field input:focus, .field textarea:focus { border-color: var(--accent); }
+    .field input:focus, .field textarea:focus { border-color: var(--primary); }
     .field textarea { resize: vertical; }
     .field .error { color: #c0392b; font-size: 0.78rem; margin-top: 4px; }
     .form-submit {
       width: 100%; padding: 16px;
       border: none; border-radius: var(--r-full);
-      background: var(--primary); color: #fff;
-      font-size: 1rem; font-weight: 600;
+      background: var(--primary); color: var(--text);
+      font-size: 1rem; font-weight: 700;
       cursor: pointer; transition: opacity 0.2s, transform 0.15s;
       box-shadow: var(--shadow-btn);
       font-family: 'Inter', system-ui, sans-serif;
@@ -375,10 +343,8 @@
     .form-success .check-big { font-size: 3rem; margin-bottom: 16px; }
     .form-success h3 { font-family: 'Fraunces', serif; font-size: 1.5rem; margin-bottom: 10px; }
     .form-success p { color: var(--muted); }
-
-    /* ── Footer ── */
     footer {
-      background: var(--primary); color: rgba(255,255,255,0.85);
+      background: var(--secondary); color: rgba(255,255,255,0.85);
       padding: 48px 24px 32px;
     }
     .footer-inner {
@@ -399,19 +365,16 @@
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
       font-size: 0.78rem; opacity: 0.5;
     }
-
-    /* ── Scroll to top ── */
     #top-btn {
       position: fixed; bottom: 24px; right: 24px; z-index: 200;
       width: 44px; height: 44px; border-radius: 50%;
-      background: var(--primary); color: #fff;
+      background: var(--primary); color: var(--text);
       border: none; cursor: pointer; font-size: 1.2rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      box-shadow: 0 4px 16px rgba(238,170,3,0.35);
       opacity: 0; transform: translateY(10px);
       transition: opacity 0.3s, transform 0.3s;
     }
     #top-btn.show { opacity: 1; transform: none; }
-
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
       .reveal { opacity: 1; transform: none; }
@@ -420,7 +383,6 @@
 </head>
 <body>
 
-<!-- ── NAVBAR ── -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="nav-logo">Vemar Dental</a>
@@ -434,7 +396,6 @@
   </div>
 </nav>
 
-<!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-grid">
     <div>
@@ -469,7 +430,6 @@
   </div>
 </section>
 
-<!-- ── ¿QUÉ ES GBT? ── -->
 <section id="que-es-gbt" class="alt">
   <div class="container">
     <div class="gbt-grid">
@@ -513,7 +473,6 @@
   </div>
 </section>
 
-<!-- ── BENEFICIOS ── -->
 <section id="beneficios">
   <div class="container">
     <div class="section-head">
@@ -556,7 +515,6 @@
   </div>
 </section>
 
-<!-- ── PROCESO ── -->
 <section id="proceso" class="alt">
   <div class="container">
     <div class="section-head">
@@ -577,7 +535,6 @@
   </div>
 </section>
 
-<!-- ── PARA QUIÉN ── -->
 <section id="para-quien">
   <div class="container">
     <div class="section-head">
@@ -601,7 +558,6 @@
   </div>
 </section>
 
-<!-- ── VÍDEO ── -->
 <section id="video" class="alt">
   <div class="container">
     <div class="section-head">
@@ -619,7 +575,6 @@
   </div>
 </section>
 
-<!-- ── TESTIMONIOS ── -->
 <section id="testimonios">
   <div class="container">
     <div class="section-head">
@@ -663,7 +618,6 @@
   </div>
 </section>
 
-<!-- ── CONTACTO ── -->
 <section id="contacto" class="alt">
   <div class="container">
     <div class="contacto-grid">
@@ -671,7 +625,6 @@
         <p class="section-label reveal">Reservar cita</p>
         <h2 class="reveal" style="transition-delay:.06s">Tu primera limpieza GBT te espera</h2>
         <p class="reveal" style="transition-delay:.1s">Rellena el formulario y te llamamos en menos de 24 horas para confirmar día y hora. O contáctanos directamente.</p>
-
         <div class="contact-item reveal" style="transition-delay:.12s">
           <div class="contact-icon">📞</div>
           <div>
@@ -693,7 +646,6 @@
             <span class="value">Avenida Casa de la Vega 53, Bajo</span>
           </div>
         </div>
-
         <div class="map-wrap reveal" style="transition-delay:.24s">
           <iframe
             src="https://maps.google.com/maps?q=Avenida+Casa+de+la+Vega+53+Bajo&output=embed"
@@ -703,7 +655,6 @@
           ></iframe>
         </div>
       </div>
-
       <div class="form-card reveal" style="transition-delay:.1s" id="form-card">
         <h3>Solicitar cita</h3>
         <form id="contact-form" novalidate>
@@ -734,7 +685,6 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
@@ -760,14 +710,11 @@
   </div>
 </footer>
 
-<!-- Scroll top -->
 <button id="top-btn" aria-label="Volver arriba" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script>
-  /* ── Año dinámico ── */
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ── Navbar scroll ── */
   const navbar = document.getElementById('navbar');
   const topBtn = document.getElementById('top-btn');
   window.addEventListener('scroll', () => {
@@ -776,14 +723,12 @@
     topBtn.classList.toggle('show', window.scrollY > 400);
   }, { passive: true });
 
-  /* ── Reveal on scroll ── */
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => io.observe(el));
 
-  /* ── Form ── */
   document.getElementById('contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
     let ok = true;
