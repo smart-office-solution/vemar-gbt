@@ -143,13 +143,12 @@
     .trust-badges span::before { content: '✓ '; color: var(--accent); }
 
     /* Hero image */
-    .hero-img {
-      border-radius: var(--r-lg); overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: 0 32px 80px rgba(0,0,0,0.10);
-      aspect-ratio: 4/5;
-    }
-    .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    ..hero-img {
+  border-radius: var(--r-lg); overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.10);
+}
+.hero-img img { width: 100%; height: auto; display: block; object-fit: contain; }
 
     /* Secciones */
     section { padding: 96px 24px; }
